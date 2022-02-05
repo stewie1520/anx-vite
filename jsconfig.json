@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@/static/*": ["public/static/*"],
+      "@/*": ["src/*"],
+    },
+  },
+  "include": ["src/"],
+  "exclude": ["node_modules"]
+}
