@@ -3,7 +3,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { configureStore } from '@reduxjs/toolkit';
 
 // custom slices
-import layoutReducer from './slices/layoutSlice'
+import layoutReducer from './slices/layoutSlice';
 
 export const history = createBrowserHistory();
 
