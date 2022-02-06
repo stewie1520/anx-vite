@@ -6,6 +6,8 @@ import routes from '@/routes';
 import { useShallowEqualSelector } from '@/hooks/useShallowEqualSelector';
 import { selectLayout, setDisplayLayout } from '@/store/slices/layoutSlice';
 
+import Header from '@/layouts/header';
+
 const Main = () => {
   const layout = useShallowEqualSelector(selectLayout);
   const dispatch = useDispatch();
@@ -26,33 +28,38 @@ const Main = () => {
   };
 
   return (
-    <Switch>
-      {routes.map(
-        ({
-          page: Page,
-          path,
-          redirect,
-          layout: routeLayout,
-          ...rest
-        }) => {
-          return redirect
-            ? (
-              <Redirect path={path} to={redirect} exact={true} />
-            )
-            : (
-              <Route
-                key={path}
-                path={path}
-                render={props => {
-                  updateDisplayLayout(routeLayout, layout);
-                  return <Page {...props} />;
-                }}
-                {...rest}
-              />
-            );
-        },
-      )}
-    </Switch>
+    <>
+      <div className="flex flex-col ml-[20%]">
+        <Header />
+        <Switch>
+          {routes.map(
+            ({
+              page: Page,
+              path,
+              redirect,
+              layout: routeLayout,
+              ...rest
+            }) => {
+              return redirect
+                ? (
+                  <Redirect path={path} to={redirect} exact={true} />
+                )
+                : (
+                  <Route
+                    key={path}
+                    path={path}
+                    render={props => {
+                      updateDisplayLayout(routeLayout, layout);
+                      return <Page {...props} />;
+                    }}
+                    {...rest}
+                  />
+                );
+            },
+          )}
+        </Switch>
+      </div>
+    </>
   );
 };
 

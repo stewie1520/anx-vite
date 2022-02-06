@@ -1,12 +1,14 @@
-import Header from './header';
 import Footer from './footer';
+import Sidebar from './sidebar';
 import Main from './main';
 
 const Layout = () => {
   return (
     <>
-      <Header />
-      <Main />
+      <div className="flex relative">
+        <Sidebar />
+        <Main />
+      </div>
       <Footer />
     </>
   );
