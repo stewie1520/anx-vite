@@ -275,7 +275,7 @@ const ProductAllPage = () => {
                                 </div>
                             </Listbox>
                         </div>
-                        <div className="flex w-full h-[400px] px-5 pb-5 overflow-auto">
+                        <div className="flex w-full px-5 pb-5 overflow-x-auto">
                             <ChartViewsAndSells />
                         </div>
                     </div>

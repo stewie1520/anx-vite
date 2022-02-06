@@ -1,7 +1,7 @@
 import ProductsRoute from '@/features/products/route';
 
 // common pages
-import NotFoundPage from '@/pages/NotFound';
+import { NotFoundPage } from '@/pages';
 
 export default [
   ...ProductsRoute,

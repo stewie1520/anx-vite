@@ -1,16 +1,20 @@
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import isEqual from 'lodash/isEqual';
+import cx from 'classnames';
 
 import routes from '@/routes';
 import { useShallowEqualSelector } from '@/hooks/useShallowEqualSelector';
-import { selectLayout, setDisplayLayout } from '@/store/slices/layoutSlice';
+import { selectLayout, setDisplayLayout, selectCollapse } from '@/store/slices/layoutSlice';
 
 import Header from '@/layouts/header';
 
 const Main = () => {
   const layout = useShallowEqualSelector(selectLayout);
+  const collapse = useSelector(selectCollapse);
   const dispatch = useDispatch();
+
+  const collapseClass = collapse ? 'ml-[80px]' : 'ml-[20%]';
 
   /**
    * check if layout of a route object is different from layout of rootStore, if so, dispatch an action to update layout
@@ -29,7 +33,7 @@ const Main = () => {
 
   return (
     <>
-      <div className="flex flex-col ml-[20%]">
+      <div className={cx(collapseClass, 'flex flex-col w-full')}>
         <Header />
         <Switch>
           {routes.map(

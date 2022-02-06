@@ -4,13 +4,16 @@ import { ConnectedRouter } from 'connected-react-router';
 import './App.css';
 import { history } from '@/store';
 import Layout from '@/layouts';
+import { ErrorBoundary } from '@/pages';
 
 function App() {
 
   return (
     <BrowserRouter>
       <ConnectedRouter history={history}>
-        <Layout />
+        <ErrorBoundary>
+          <Layout />
+        </ErrorBoundary>
       </ConnectedRouter>
     </BrowserRouter>
   );
