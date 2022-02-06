@@ -5,7 +5,6 @@ import { selectLayout } from '@/store/slices/layoutSlice';
 import { BellIcon, ChatIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import { SearchIcon } from '@heroicons/react/solid';
 
-// eslint-disable-next-line react/prop-types
 const Header = () => {
     const { header } = useSelector(selectLayout);
 
