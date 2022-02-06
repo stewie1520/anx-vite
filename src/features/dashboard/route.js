@@ -1,13 +1,13 @@
-import ProductAllPage from './pages/All/All';
+import DashboardPage from './pages/All/index';
 
 export default [
     {
-        path: '/products',
+        path: '/overview',
         exact: true,
         layout: {
             header: true,
             footer: false,
         },
-        page: ProductAllPage,
+        page: DashboardPage,
     },
 ];

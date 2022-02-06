@@ -1,14 +1,14 @@
-import ProductsRoute from '@/features/products/route';
+import DashboardRoute from '@/features/dashboard/route';
 
 // common pages
 import { NotFoundPage } from '@/pages';
 
 export default [
-  ...ProductsRoute,
+  ...DashboardRoute,
   {
     path: '/',
     exact: true,
-    redirect: '/products',
+    redirect: '/overview',
   },
   {
     path: '/*',

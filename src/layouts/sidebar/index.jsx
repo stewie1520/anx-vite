@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <div className={cx(collapseClass, 'flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200')}>
       <div className="flex flex-col space-y-5 p-3">
-        <NavLink to="/products" className="text-gray-400" activeClassName="bg-gray-100 text-blue-400">
+        <NavLink to="/overview" className="text-gray-400" activeClassName="bg-gray-100 text-blue-400">
           <div className="flex items-center space-x-4 p-3 rounded cursor-pointer hover:bg-gray-100">
             <ChartPieIcon className="w-6 h-6" />
             <span className={cx('font-medium', hiddenClass)}>Dashboard</span>

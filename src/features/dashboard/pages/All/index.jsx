@@ -13,7 +13,7 @@ import {
 
 // components
 import { Listbox, Transition } from '@headlessui/react';
-import { ChartViewsAndSells } from '@/features/products/components';
+import { ChartViewsAndSells } from '@/features/dashboard/components';
 
 // hooks
 import { useDocumentTitle } from '@/hooks';
@@ -23,7 +23,7 @@ const chartViewSalesOptions = [
     { name: 'This month', value: 'month' },
 ];
 
-const ProductAllPage = () => {
+const DashboardPage = () => {
     useDocumentTitle('Dashboard');
 
     const [chartViewSaleSelectedOption, setChartViewSaleSelectedOption] = useState(chartViewSalesOptions[0]);
@@ -97,7 +97,7 @@ const ProductAllPage = () => {
                     <div className="relative bg-white text-gray-500 h-[240px] p-5">
                         <div className="flex justify-between">
                             <div className="h-[60px] w-[60px] bg-gray-100 p-3">
-                                <ShoppingCartIcon className="text-blue-400" />
+                                <ShoppingCartIcon className="text-emerald-600" />
                             </div>
                             <div className="text-white ">
                             </div>
@@ -285,4 +285,4 @@ const ProductAllPage = () => {
     );
 };
 
-export default ProductAllPage;
+export default DashboardPage;
