@@ -9,11 +9,17 @@
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo Hello"
+    }
+  },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
     "@reduxjs/toolkit": "^1.7.2",
     "connected-react-router": "^6.9.2",
     "history": "^4.1.0",
+    "husky": "^7.0.4",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
