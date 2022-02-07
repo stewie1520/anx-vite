@@ -1,4 +1,7 @@
-import DashboardPage from './pages/All/index';
+import { lazy } from 'react';
+
+import store from '@/store';
+import { name, reducer, saga } from '@/features/dashboard/redux';
 
 export default [
     {
@@ -8,6 +11,10 @@ export default [
             header: true,
             footer: false,
         },
-        page: DashboardPage,
+        page: lazy(() => import('./pages/All/index').then(module => {
+            store.injectReducer(name, reducer);
+            store.injectSaga(name, saga);
+            return module;
+        })),
     },
 ];

@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // icons
 import {
@@ -13,10 +14,15 @@ import {
 
 // components
 import { Listbox, Transition } from '@headlessui/react';
-import { ChartViewsAndSells } from '@/features/dashboard/components';
+import { ChartViewsAndSells, RowUser } from '@/features/dashboard/components';
 
 // hooks
 import { useDocumentTitle } from '@/hooks';
+
+// selectors
+import { selectUsers } from '@/features/dashboard/redux/selectors';
+// actions
+import { userFetchingStarted } from '@/features/dashboard/redux/slice';
 
 const chartViewSalesOptions = [
     { name: 'This week', value: 'week' },
@@ -25,8 +31,14 @@ const chartViewSalesOptions = [
 
 const DashboardPage = () => {
     useDocumentTitle('Dashboard');
+    const dispatch = useDispatch();
 
+    const usersData = useSelector(selectUsers);
     const [chartViewSaleSelectedOption, setChartViewSaleSelectedOption] = useState(chartViewSalesOptions[0]);
+
+    useEffect(() => {
+        dispatch(userFetchingStarted());
+    }, []);
 
     return (
         <Fragment>
@@ -133,91 +145,16 @@ const DashboardPage = () => {
                                 </tr>
                             </thead>
                             <tbody className="text-sm divide-y divide-gray-100">
-                                <tr>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov" /></div>
-                                            <div className="font-medium text-gray-800">Alex Shatov</div>
-                                        </div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left">alexshatov@gmail.com</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left font-medium text-green-500">$2,890.66</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-lg text-center">🇺🇸</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-06.jpg" width="40" height="40" alt="Philip Harbach" /></div>
-                                            <div className="font-medium text-gray-800">Philip Harbach</div>
-                                        </div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left">philip.h@gmail.com</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left font-medium text-green-500">$2,767.04</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-lg text-center">🇩🇪</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg" width="40" height="40" alt="Mirko Fisuk" /></div>
-                                            <div className="font-medium text-gray-800">Mirko Fisuk</div>
-                                        </div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left">mirkofisuk@gmail.com</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left font-medium text-green-500">$2,996.00</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-lg text-center">🇫🇷</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-08.jpg" width="40" height="40" alt="Olga Semklo" /></div>
-                                            <div className="font-medium text-gray-800">Olga Semklo</div>
-                                        </div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left">olga.s@cool.design</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left font-medium text-green-500">$1,220.66</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-lg text-center">🇮🇹</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="flex items-center">
-                                            <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-09.jpg" width="40" height="40" alt="Burak Long" /></div>
-                                            <div className="font-medium text-gray-800">Burak Long</div>
-                                        </div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left">longburak@gmail.com</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-left font-medium text-green-500">$1,890.66</div>
-                                    </td>
-                                    <td className="p-2 whitespace-nowrap">
-                                        <div className="text-lg text-center">🇬🇧</div>
-                                    </td>
-                                </tr>
+                                {
+                                    usersData.map((userData, idx) =>
+                                        <RowUser
+                                            key={idx}
+                                            imageUrl={userData.imageUrl}
+                                            name={userData.name}
+                                            email={userData.email}
+                                            spent={userData.spent}
+                                            country={userData.country} />)
+                                }
                             </tbody>
                         </table>
                     </div>

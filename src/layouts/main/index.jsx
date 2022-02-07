@@ -43,10 +43,10 @@ const Main = () => {
               redirect,
               layout: routeLayout,
               ...rest
-            }) => {
+            }, idx) => {
               return redirect
                 ? (
-                  <Redirect path={path} to={redirect} exact={true} />
+                  <Redirect key={idx} path={path} to={redirect} exact={true} />
                 )
                 : (
                   <Route

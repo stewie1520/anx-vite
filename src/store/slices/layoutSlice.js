@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import isUndefined from 'lodash/isUndefined';
 import pick from 'lodash/pick';
 
+export const name = 'layout';
+
 export const layoutSlice = createSlice({
-    name: 'layout',
+    name,
     initialState: {
         header: true,
         footer: true,

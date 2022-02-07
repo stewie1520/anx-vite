@@ -1,10 +1,11 @@
+import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
 import './App.css';
 import { history } from '@/store';
 import Layout from '@/layouts';
-import { ErrorBoundary } from '@/pages';
+import { ErrorBoundary, SplashPage } from '@/pages';
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
     <BrowserRouter>
       <ConnectedRouter history={history}>
         <ErrorBoundary>
-          <Layout />
+          <Suspense fallback={<SplashPage />}>
+            <Layout />
+          </Suspense>
         </ErrorBoundary>
       </ConnectedRouter>
     </BrowserRouter>
