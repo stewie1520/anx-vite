@@ -14,7 +14,9 @@ const Main = () => {
   const collapse = useSelector(selectCollapse);
   const dispatch = useDispatch();
 
-  const collapseClass = layout.sidebar ? (collapse ? 'ml-[80px]' : 'ml-[20%]') : null;
+  const collapseClass = layout.sidebar
+    ? ['transition-[margin-left]', 'delay-150', collapse ? 'ml-[80px]' : 'ml-[20%]'].join(' ')
+    : null;
 
   /**
    * check if layout of a route object is different from layout of rootStore, if so, dispatch an action to update layout
@@ -33,7 +35,7 @@ const Main = () => {
 
   return (
     <>
-      <div className={cx(collapseClass, 'flex flex-col w-full transition-[margin-left] delay-150')}>
+      <div className={cx(collapseClass, 'flex flex-col w-full')}>
         <Header />
         <Switch>
           {routes.map(
