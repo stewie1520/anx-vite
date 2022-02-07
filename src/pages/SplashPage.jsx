@@ -1,7 +1,7 @@
 export const SplashPage = () => {
   return (
-    <>
-      <h1>Loading</h1>
-    </>
+    <div className="bg-gray-100 flex flex-col w-full h-screen justify-center items-center">
+      <div>Loading</div>
+    </div>
   );
 };

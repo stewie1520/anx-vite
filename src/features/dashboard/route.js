@@ -10,6 +10,7 @@ export default [
         layout: {
             header: true,
             footer: false,
+            sidebar: true,
         },
         page: lazy(() => import('./pages/All/index').then(module => {
             store.injectReducer(name, reducer);

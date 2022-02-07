@@ -14,7 +14,7 @@ const Main = () => {
   const collapse = useSelector(selectCollapse);
   const dispatch = useDispatch();
 
-  const collapseClass = collapse ? 'ml-[80px]' : 'ml-[20%]';
+  const collapseClass = layout.sidebar ? (collapse ? 'ml-[80px]' : 'ml-[20%]') : null;
 
   /**
    * check if layout of a route object is different from layout of rootStore, if so, dispatch an action to update layout
@@ -23,8 +23,8 @@ const Main = () => {
    */
   const updateDisplayLayout = (routeLayout, rootLayout) => {
     const newLayout = routeLayout
-      ? { header: routeLayout.header, footer: routeLayout.footer }
-      : { header: true, footer: true };
+      ? { header: routeLayout.header, sidebar: routeLayout.sidebar, footer: routeLayout.footer }
+      : { header: true, footer: true, sidebar: true };
 
     if (!isEqual(newLayout, rootLayout)) {
       setTimeout(() => dispatch(setDisplayLayout(newLayout)));

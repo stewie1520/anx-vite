@@ -15,6 +15,7 @@ export default [
     layout: {
       header: false,
       footer: false,
+      sidebar: false,
     },
     page: NotFoundPage,
   },

@@ -11,12 +11,18 @@ import {
 // components
 import { NavLinkSidebar } from '@/components/navlinks';
 
-import { selectCollapse, toggleCollapse } from '@/store/slices/layoutSlice';
+import { selectCollapse, selectLayout, toggleCollapse } from '@/store/slices/layoutSlice';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const { sidebar } = useSelector(selectLayout);
+
   const collapse = useSelector(selectCollapse);
   const layoutCollapseClass = collapse ? 'w-20' : 'w-1/5';
+
+  if (!sidebar) {
+    return null;
+  }
 
   return (
     <div className={cx(layoutCollapseClass, 'transition-all delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200')}>
