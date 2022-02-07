@@ -32,7 +32,6 @@ const createSagaInjector = (runSaga, rootSaga) => {
 
   const isInjected = key => injectedSagas.has(key);
   const injectSaga = (key, saga) => {
-    console.log('injecting', key, saga);
     if (isInjected(key)) return;
     const task = runSaga(saga);
     // Save the task if we want to cancel it in the future

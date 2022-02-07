@@ -33,7 +33,7 @@ const Main = () => {
 
   return (
     <>
-      <div className={cx(collapseClass, 'flex flex-col w-full')}>
+      <div className={cx(collapseClass, 'flex flex-col w-full transition-[margin-left] delay-150')}>
         <Header />
         <Switch>
           {routes.map(

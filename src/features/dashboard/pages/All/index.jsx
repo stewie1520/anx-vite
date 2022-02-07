@@ -146,14 +146,16 @@ const DashboardPage = () => {
                             </thead>
                             <tbody className="text-sm divide-y divide-gray-100">
                                 {
-                                    usersData.map((userData, idx) =>
-                                        <RowUser
-                                            key={idx}
-                                            imageUrl={userData.imageUrl}
-                                            name={userData.name}
-                                            email={userData.email}
-                                            spent={userData.spent}
-                                            country={userData.country} />)
+                                    usersData.length ?
+                                        usersData.map((userData, idx) =>
+                                            <RowUser
+                                                key={idx}
+                                                imageUrl={userData.imageUrl}
+                                                name={userData.name}
+                                                email={userData.email}
+                                                spent={userData.spent}
+                                                country={userData.country} />)
+                                        : Array.from({ length: 5 }).map((_, idx) => <RowUser key={idx} empty />)
                                 }
                             </tbody>
                         </table>
