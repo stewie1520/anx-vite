@@ -8,16 +8,16 @@ export const RowUser = ({ empty, imageUrl, name, email, spent, country }) => {
       {
         empty ? (
           <>
-            <td className="p-2 whitespace-nowrap">
+            <td className="p-3 whitespace-nowrap">
               <Skeleton />
             </td>
-            <td className="p-2 whitespace-nowrap">
+            <td className="p-3 whitespace-nowrap">
               <Skeleton />
             </td>
-            <td className="p-2 whitespace-nowrap">
+            <td className="p-3 whitespace-nowrap">
               <Skeleton />
             </td>
-            <td className="p-2 whitespace-nowrap">
+            <td className="p-3 whitespace-nowrap">
               <Skeleton />
             </td>
           </>
@@ -33,7 +33,7 @@ export const RowUser = ({ empty, imageUrl, name, email, spent, country }) => {
               <div className="text-left">{email}</div>
             </td>
             <td className="p-2 whitespace-nowrap">
-              <div className="text-left font-medium text-green-500">{spent}</div>
+              <div className="text-left font-medium text-dark-blue">{spent}</div>
             </td>
             <td className="p-2 whitespace-nowrap">
               <div className="text-lg text-center">{country}</div>

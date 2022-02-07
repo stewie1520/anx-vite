@@ -28,14 +28,13 @@ store.injectReducer = (key, asyncReducer) => {
 
 const createSagaInjector = (runSaga, rootSaga) => {
   // Create a dictionary to keep track of injected sagas
-  const injectedSagas = new Map();
+  const mapSaga = new Map();
 
-  const isInjected = key => injectedSagas.has(key);
   const injectSaga = (key, saga) => {
-    if (isInjected(key)) return;
+    if (mapSaga.has(key)) return;
     const task = runSaga(saga);
     // Save the task if we want to cancel it in the future
-    injectedSagas.set(key, task);
+    mapSaga.set(key, task);
   };
 
   // Inject the root saga as it a staticlly loaded file,
