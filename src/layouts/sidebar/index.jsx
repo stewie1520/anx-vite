@@ -25,7 +25,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className={cx(layoutCollapseClass, 'transition-all delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200 dark:bg-slate-900 dark:border-r-slate-800')}>
+    <div className={cx(layoutCollapseClass, 'transition-[width] delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200 dark:bg-slate-900 dark:border-r-slate-800')}>
       <div className="flex flex-col space-y-5 p-3 overflow-hidden">
         <NavLinkSidebar icon={ChartPieIcon} title="Dashboard" to="/overview" />
         <NavLinkSidebar icon={ArchiveIcon} title="Products" to="/products" />

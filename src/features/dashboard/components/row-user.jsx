@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { SkeletonTheme } from '@/components/skeleton';
+import Skeleton from 'react-loading-skeleton';
 
 export const RowUser = ({ empty, imageUrl, name, email, spent, country }) => {
   return (
@@ -8,7 +9,7 @@ export const RowUser = ({ empty, imageUrl, name, email, spent, country }) => {
       {
         empty ? (
           <>
-            <SkeletonTheme baseColor="#333" highlightColor='#333dff'>
+            <SkeletonTheme>
               <td className="p-3 whitespace-nowrap">
                 <Skeleton />
               </td>
