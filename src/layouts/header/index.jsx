@@ -16,9 +16,9 @@ const Header = () => {
     }
 
     return (
-        <div className="relative bg-white">
+        <div className="relative bg-white dark:bg-slate-800">
             <div className="max-w-8xl mx-auto">
-                <div className="flex justify-between items-center border-b-2 border-gray-200 py-5 px-6">
+                <div className="flex justify-between items-center border-b-[1px] border-gray-200 py-5 px-6 dark:border-slate-700">
                     {/* search box */}
                     <SearchBox />
                     {/* notification, chat */}

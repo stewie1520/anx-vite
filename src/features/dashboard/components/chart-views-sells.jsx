@@ -55,8 +55,8 @@ export function ChartViewsAndSells() {
   return (
     <ResponsiveContainer width="100%" height={220}>
       <LineChart width={300} height={100} data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis dataKey="name" stroke="white" />
+        <YAxis stroke="white" />
         <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
       </LineChart>
     </ResponsiveContainer>

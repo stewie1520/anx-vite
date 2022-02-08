@@ -7,13 +7,13 @@ export const ItemNotification = (props) => {
     format(props.at, 'dd-MM-yyyy hh:mm') : formatDistanceToNow(props.at, { addSuffix: true });
 
   return (
-    <div className={cx('flex w-full hover:bg-gray-50 p-2 rounded-sm cursor-pointer', props.unread ? 'bg-gray-50' : null)}>
+    <div className={cx('flex w-full hover:bg-gray-50 p-2 rounded-sm cursor-pointer dark:hover:bg-slate-600', props.unread ? 'bg-gray-50 dark:bg-slate-700' : null)}>
       <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
         <img className="rounded-full" src={props.imageUrl} width="40" height="40" alt={props.imageAlt} />
       </div>
       <div className="flex flex-col">
-        <span className="font-medium text-gray-600">{props.title}</span>
-        <span className="text-sm line-clamp-4 text-gray-500">
+        <span className="font-medium text-gray-600 dark:text-gray-100">{props.title}</span>
+        <span className="text-sm line-clamp-4 text-gray-500 dark:text-gray-300">
           {props.content}
         </span>
         <span className="text-sm font-medium text-blue-500">{since}</span>

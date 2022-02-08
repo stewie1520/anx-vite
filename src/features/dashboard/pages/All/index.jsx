@@ -31,9 +31,9 @@ const DashboardPage = () => {
 
     return (
         <Fragment>
-            <div className="relative bg-gray-100 px-6 pt-4">
+            <div className="relative bg-gray-100 dark:bg-slate-900 px-6 pt-4">
                 <div className="relative pb-4">
-                    <h1 className="font-bold text-dark-blue text-2xl">Dashboard</h1>
+                    <h1 className="font-bold text-dark-blue dark:text-gray-100 text-2xl">Dashboard</h1>
                 </div>
                 <div className="grid md:grid-cols-4 gap-4 sm:grid-cols-3">
                     <WidgetTotalViews />
@@ -42,15 +42,15 @@ const DashboardPage = () => {
                     <WidgetTotalSales />
                 </div>
                 <div className="grid grid-cols-3 gap-4 my-4 items-start">
-                    <div className="col-span-2 bg-white shadow-lg rounded-sm border border-gray-200">
+                    <div className="col-span-2 bg-white shadow-lg rounded-sm border border-gray-200 dark:border-slate-700">
                         <TableUser />
                     </div>
-                    <div className="bg-white shadow-lg rounded-sm border border-gray-200">
+                    <div className="bg-white shadow-lg rounded-sm border border-gray-200 dark:border-slate-700 dark:bg-slate-800">
                         <div className="flex justify-between p-5">
-                            <p className="text-dark-blue font-semibold font-sm">Views & Sells</p>
+                            <p className="text-dark-blue font-semibold font-sm dark:text-gray-400">Views & Sells</p>
                             <Listbox value={chartViewSaleSelectedOption} onChange={setChartViewSaleSelectedOption}>
                                 <div className="relative">
-                                    <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-gray-100 rounded-lg cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                                    <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-gray-100 rounded-lg cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm dark:bg-slate-700 dark:text-gray-300 dark:focus-visible:ring-offset-blue-500 dark:focus-visible:ring-slate-600">
                                         <span className="block truncate">{chartViewSaleSelectedOption.name}</span>
                                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                             <SelectorIcon
@@ -65,11 +65,11 @@ const DashboardPage = () => {
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
                                     >
-                                        <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                        <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm dark:bg-slate-700">
                                             {chartViewSalesOptions.map((option, idx) => (
                                                 <Listbox.Option
                                                     key={idx}
-                                                    className={({ active }) => `${active ? 'text-blue-900 bg-blue-100' : 'text-gray-900'}
+                                                    className={({ active }) => `${active ? 'text-blue-900 bg-blue-100 dark:text-gray-300 dark:bg-slate-600' : 'text-gray-900 dark:text-gray-300'}
                                                     cursor-default select-none relative py-2 pl-10 pr-4`}
                                                     value={option}>
                                                     {({ selected, active }) => (
@@ -82,7 +82,7 @@ const DashboardPage = () => {
                                                             </span>
                                                             {selected ? (
                                                                 <span
-                                                                    className={`${active ? 'text-blue-600' : 'text-blue-600'
+                                                                    className={`${active ? 'text-blue-600 dark:text-blue-300' : 'text-blue-600 dark:text-blue-300'
                                                                         }
                                 absolute inset-y-0 left-0 flex items-center pl-3`}
                                                                 >

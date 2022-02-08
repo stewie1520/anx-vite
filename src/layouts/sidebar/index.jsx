@@ -25,13 +25,13 @@ const Sidebar = () => {
   }
 
   return (
-    <div className={cx(layoutCollapseClass, 'transition-all delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200')}>
+    <div className={cx(layoutCollapseClass, 'transition-all delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200 dark:bg-slate-900 dark:border-r-slate-800')}>
       <div className="flex flex-col space-y-5 p-3 overflow-hidden">
         <NavLinkSidebar icon={ChartPieIcon} title="Dashboard" to="/overview" />
         <NavLinkSidebar icon={ArchiveIcon} title="Products" to="/products" />
       </div>
       <div className="flex p-3">
-        <button onClick={() => dispatch(toggleCollapse())} className="w-full rounded-sm hover:bg-blue-300 h-12 flex justify-center items-center bg-blue-200 text-white text-sm">
+        <button onClick={() => dispatch(toggleCollapse())} className="w-full rounded-sm hover:bg-blue-300 h-12 flex justify-center items-center bg-blue-200 text-white text-sm dark:bg-blue-500 dark:hover:bg-blue-400">
           {collapse ? (
             <ArrowRightIcon className="w-5 h-5" />
           ) : (
