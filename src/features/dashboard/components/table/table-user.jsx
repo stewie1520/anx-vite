@@ -18,7 +18,7 @@ export const TableUser = () => {
 
   return (
     <table className="table-auto w-full">
-      <thead className="text-xs font-semibold uppercase text-dark-blue bg-gray-50">
+      <thead className="text-xs font-semibold uppercase text-dark-blue bg-gray-50 dark:bg-slate-700 dark:text-gray-300">
         <tr>
           <th className="p-3 whitespace-nowrap">
             <div className="font-semibold text-left">Name</div>
@@ -34,7 +34,7 @@ export const TableUser = () => {
           </th>
         </tr>
       </thead>
-      <tbody className="text-sm divide-y divide-gray-100">
+      <tbody className="text-sm divide-y divide-gray-100 dark:bg-slate-800 dark:divide-slate-700">
         {
           usersData.length ?
             usersData.map((userData, idx) =>

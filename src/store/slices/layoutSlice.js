@@ -11,6 +11,7 @@ export const layoutSlice = createSlice({
         footer: true,
         sidebar: true,
         collapse: false,
+        theme: null,
     },
     reducers: {
         setDisplayLayout: (state, action) => {
@@ -21,14 +22,19 @@ export const layoutSlice = createSlice({
         toggleCollapse: (state, action) => {
             state.collapse = isUndefined(action.payload?.collapse) ? !state.collapse : action.payload.collapse;
         },
+        setTheme: (state, action) => {
+            state.theme = action.payload;
+        },
     },
 });
 
 export const selectLayout = rootState => pick(rootState.layout, 'header', 'footer', 'sidebar');
-export const selectCollapse = rootState => rootState.layout.collapse;
+export const selectCollapse = rootState => rootState[name].collapse;
+export const selectTheme = rootState => rootState[name].theme;
 
 export const {
     setDisplayLayout,
     toggleCollapse,
+    setTheme,
 } = layoutSlice.actions;
 export default layoutSlice.reducer;

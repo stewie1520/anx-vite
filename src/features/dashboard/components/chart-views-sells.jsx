@@ -6,6 +6,8 @@ import {
   YAxis,
 } from 'recharts';
 
+import { useDarkModeProps } from '@/hooks';
+
 const data = [
   {
     name: 'Page A',
@@ -52,11 +54,13 @@ const data = [
 ];
 
 export function ChartViewsAndSells() {
+  const strokeProps = useDarkModeProps({ stroke: '#fff' });
+
   return (
     <ResponsiveContainer width="100%" height={220}>
       <LineChart width={300} height={100} data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis dataKey="name" {...strokeProps} />
+        <YAxis {...strokeProps} />
         <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
       </LineChart>
     </ResponsiveContainer>
