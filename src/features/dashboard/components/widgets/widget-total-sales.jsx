@@ -2,7 +2,7 @@ import { ShoppingCartIcon } from '@heroicons/react/solid';
 
 export const WidgetTotalSales = () => {
   return (
-    <div className="relative bg-white text-gray-500 h-[240px] p-5 ring-slate-900/5 dark:bg-slate-800">
+    <div className="relative bg-white text-gray-500 h-[240px] p-5 ring-1 ring-slate-900/5 dark:bg-slate-800">
       <div className="flex justify-between">
         <div className="h-[60px] w-[60px] bg-gray-100 p-3 dark:bg-slate-700">
           <ShoppingCartIcon className="text-emerald-600" />

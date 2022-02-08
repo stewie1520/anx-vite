@@ -2,7 +2,7 @@ import { EyeIcon } from '@heroicons/react/solid';
 
 export const WidgetTotalViews = () => {
   return (
-    <div className="relative bg-blue-400 text-white h-[240px] p-5">
+    <div className="relative bg-blue-400 text-white ring-1 ring-slate-900/5 h-[240px] p-5">
       <div className="flex justify-between">
         <div className="h-[60px] w-[60px] bg-blue-300 p-3">
           <EyeIcon />
