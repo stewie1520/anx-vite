@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
   LineChart,
@@ -8,7 +9,7 @@ import {
 
 import { useDarkModeProps } from '@/hooks';
 
-const data = [
+const dataWeek = [
   {
     name: 'Page A',
     uv: 4000,
@@ -53,8 +54,36 @@ const data = [
   },
 ];
 
-export function ChartViewsAndSells() {
+const dataMonth = [
+  {
+    name: 'Page D',
+    uv: 2700,
+    pv: 3908,
+    amt: 2010,
+  },
+  {
+    name: 'Page E',
+    uv: 1850,
+    pv: 4800,
+    amt: 2201,
+  },
+  {
+    name: 'Page F',
+    uv: 2200,
+    pv: 3800,
+    amt: 2700,
+  },
+  {
+    name: 'Page G',
+    uv: 3105,
+    pv: 4300,
+    amt: 2120,
+  },
+];
+
+export function ChartViewsAndSells({ filterBy = 'week' }) {
   const strokeProps = useDarkModeProps({ stroke: '#fff' });
+  const data = filterBy == 'week' ? dataWeek : dataMonth;
 
   return (
     <ResponsiveContainer width="100%" height={220}>
@@ -66,3 +95,7 @@ export function ChartViewsAndSells() {
     </ResponsiveContainer>
   );
 }
+
+ChartViewsAndSells.propTypes = {
+  filterBy: PropTypes.string,
+};
