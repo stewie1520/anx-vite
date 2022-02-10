@@ -12,6 +12,7 @@ export const layoutSlice = createSlice({
         sidebar: true,
         collapse: false,
         theme: null,
+        isSidebarTransitioning: false,
     },
     reducers: {
         setDisplayLayout: (state, action) => {
@@ -19,7 +20,11 @@ export const layoutSlice = createSlice({
             state.footer = action.payload.footer;
             state.sidebar = action.payload.sidebar;
         },
+        sidebarTransitionEnded(state) {
+            state.isSidebarTransitioning = false;
+        },
         toggleCollapse: (state, action) => {
+            state.isSidebarTransitioning = true;
             state.collapse = isUndefined(action.payload?.collapse) ? !state.collapse : action.payload.collapse;
         },
         setTheme: (state, action) => {
@@ -31,10 +36,12 @@ export const layoutSlice = createSlice({
 export const selectLayout = rootState => pick(rootState.layout, 'header', 'footer', 'sidebar');
 export const selectCollapse = rootState => rootState[name].collapse;
 export const selectTheme = rootState => rootState[name].theme;
+export const selectTransitioning = rootState => rootState[name].isSidebarTransitioning;
 
 export const {
     setDisplayLayout,
     toggleCollapse,
     setTheme,
+    sidebarTransitionEnded,
 } = layoutSlice.actions;
 export default layoutSlice.reducer;

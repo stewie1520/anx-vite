@@ -14,7 +14,7 @@ import {
 // components
 import { NavLinkSidebar, NavLinkSidebarCollapse } from '@/components/navlinks';
 
-import { selectCollapse, selectLayout, toggleCollapse } from '@/store/slices/layoutSlice';
+import { selectCollapse, selectLayout, toggleCollapse, sidebarTransitionEnded } from '@/store/slices/layoutSlice';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -27,8 +27,14 @@ const Sidebar = () => {
     return null;
   }
 
+  const handlerOnTransitionEnd = () => {
+    dispatch(sidebarTransitionEnded());
+  };
+
   return (
-    <div className={cx(layoutCollapseClass, 'transition-[width] delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200 dark:bg-slate-900 dark:border-r-slate-800')}>
+    <div
+      onTransitionEnd={handlerOnTransitionEnd}
+      className={cx(layoutCollapseClass, 'transition-[width] delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200 dark:bg-slate-900 dark:border-r-slate-800')}>
       <Scrollbars
         autoHide
         hideTracksWhenNotNeeded
