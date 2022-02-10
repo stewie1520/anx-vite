@@ -19,7 +19,6 @@ export const ListboxViewsSales = ({ onChange }) => {
   const [chartViewSaleSelectedOption, setChartViewSaleSelectedOption] = useState(chartViewSalesOptions[0]);
 
   const handleOnChange = (option) => {
-    console.log(option);
     if (onChange) {
       onChange(option);
     }

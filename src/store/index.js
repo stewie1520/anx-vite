@@ -9,10 +9,9 @@ import rootSaga from './saga';
 export const history = createBrowserHistory();
 
 const sagaMiddleware = createSagaMiddleware();
-
 const store = configureStore({
   reducer: makeRootReducer(history),
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: import.meta.env.DEV,
   middleware: [
     routerMiddleware(history),
     sagaMiddleware,
