@@ -32,7 +32,7 @@ const Sidebar = () => {
       <Scrollbars
         autoHide
       >
-        <div className="flex flex-col space-y-5 divide-y divide-gray-100 p-3 overflow-auto dark:divide-slate-700">
+        <div className="flex flex-col space-y-5 divide-y divide-gray-100 p-3 overflow-y-auto dark:divide-slate-700">
           <NavLinkSidebar icon={ChartPieIcon} title="Dashboard" to="/overview" />
           <NavLinkSidebar icon={ArchiveIcon} title="Products" to="/products" />
           <NavLinkSidebarCollapse icon={ShoppingCartIcon} title="Sale Managements">
