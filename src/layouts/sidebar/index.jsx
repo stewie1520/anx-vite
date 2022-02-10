@@ -31,8 +31,9 @@ const Sidebar = () => {
     <div className={cx(layoutCollapseClass, 'transition-[width] delay-150 flex fixed justify-between z-50 h-full flex-col bg-white border-r-[1px] border-r-gray-200 dark:bg-slate-900 dark:border-r-slate-800')}>
       <Scrollbars
         autoHide
+        hideTracksWhenNotNeeded
       >
-        <div className="flex flex-col space-y-5 divide-y divide-gray-100 p-3 overflow-y-auto dark:divide-slate-700">
+        <div className="flex flex-col space-y-5 divide-y divide-gray-100 p-3 dark:divide-slate-700">
           <NavLinkSidebar icon={ChartPieIcon} title="Dashboard" to="/overview" />
           <NavLinkSidebar icon={ArchiveIcon} title="Products" to="/products" />
           <NavLinkSidebarCollapse icon={ShoppingCartIcon} title="Sale Managements">
