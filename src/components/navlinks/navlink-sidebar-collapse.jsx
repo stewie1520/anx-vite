@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { createContext, Fragment, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
@@ -9,6 +9,12 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 
 import { selectCollapse, toggleCollapse } from '@/store/slices/layoutSlice';
 import { useHiddenAfterSidebarTransitionEnd } from '@/hooks';
+
+const collapseContext = createContext();
+export const useNavlinkSidebarCollapseContext = () => {
+  const context = useContext(collapseContext);
+  return context;
+};
 
 export const NavLinkSidebarCollapse = ({ icon: Icon, title, children }) => {
   const dispatch = useDispatch();
@@ -32,47 +38,48 @@ export const NavLinkSidebarCollapse = ({ icon: Icon, title, children }) => {
     setIsClosureOpen(!isClosureOpen);
   };
 
-
   return (
-    <div className="text-gray-400">
-      <Disclosure
-        defaultOpen={isClosureOpen}
-        as={Fragment}>
-        {() => (
-          <>
-            <Disclosure.Button as={Fragment}>
-              {({ open }) => {
-                const className = open ? 'rotate-180' : null;
-                return (
-                  <button className={cx(navLinkCollapseClass, hiddenPadding3, hiddenCenter, hiddenWidth, 'flex items-center flex-nowrap overflow-x-hidden space-x-4 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700')}
-                    onClick={handleDisclosureButtonClicked}>
-                    <Icon className="w-6 h-6" />
-                    <span className={cx('font-medium text-left', hiddenClass)}>{title}</span>
-                    <div className={cx(hiddenClass)}>
-                      <ChevronDownIcon className={cx('w-4 transition-transform ease-in-out delay-150', className)} />
-                    </div>
-                  </button>
-                );
-              }}
-            </Disclosure.Button>
-            <Transition
-              show={isClosureOpen}
-              enter="transition-[height] duration-100 ease-in-out"
-              enterFrom="transform h-0"
-              enterTo="transform h-full"
-              leave="transition-[height] duration-100 ease-out"
-              leaveFrom="transform h-full"
-              leaveTo="transform h-0">
-              <Disclosure.Panel static>
-                <div className={cx('ml-2', hiddenClass)} >
-                  {children}
-                </div>
-              </Disclosure.Panel>
-            </Transition>
-          </>
-        )}
-      </Disclosure>
-    </div >
+    <collapseContext.Provider value={{}}>
+      <div className="text-gray-400">
+        <Disclosure
+          defaultOpen={isClosureOpen}
+          as={Fragment}>
+          {() => (
+            <>
+              <Disclosure.Button as={Fragment}>
+                {({ open }) => {
+                  const className = open ? 'rotate-180' : null;
+                  return (
+                    <button className={cx(navLinkCollapseClass, hiddenPadding3, hiddenCenter, hiddenWidth, 'flex items-center flex-nowrap overflow-x-hidden space-x-4 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700')}
+                      onClick={handleDisclosureButtonClicked}>
+                      <Icon className="w-6 h-6" />
+                      <span className={cx('font-medium text-left', hiddenClass)}>{title}</span>
+                      <div className={cx(hiddenClass)}>
+                        <ChevronDownIcon className={cx('w-4 transition-transform ease-in-out delay-150', className)} />
+                      </div>
+                    </button>
+                  );
+                }}
+              </Disclosure.Button>
+              <Transition
+                show={isClosureOpen}
+                enter="transition-[height] duration-100 ease-in-out"
+                enterFrom="transform h-0"
+                enterTo="transform h-full"
+                leave="transition-[height] duration-100 ease-out"
+                leaveFrom="transform h-full"
+                leaveTo="transform h-0">
+                <Disclosure.Panel static>
+                  <div className={cx('ml-2', hiddenClass)} >
+                    {children}
+                  </div>
+                </Disclosure.Panel>
+              </Transition>
+            </>
+          )}
+        </Disclosure>
+      </div >
+    </collapseContext.Provider>
   );
 };
 

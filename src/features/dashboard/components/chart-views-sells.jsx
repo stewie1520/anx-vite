@@ -87,7 +87,7 @@ export function ChartViewsAndSells({ filterBy = 'week' }) {
 
   return (
     <ResponsiveContainer width="100%" height={220}>
-      <LineChart width={300} height={100} data={data}>
+      <LineChart width={300} data={data}>
         <XAxis dataKey="name" {...strokeProps} />
         <YAxis {...strokeProps} />
         <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
