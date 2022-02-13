@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "cmd": "node ./scripts/commander.js"
   },
   "lint-staged": {
     "!(log|temp|public|ecosystem.config)*.+(js|jsx|ts)": [
@@ -39,11 +40,14 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@vitejs/plugin-react": "^1.0.7",
     "autoprefixer": "^10.4.2",
+    "commander": "^9.0.0",
     "commitlint": "^16.1.0",
     "eslint": "^8.8.0",
     "eslint-plugin-react": "^7.28.0",
     "husky": "^7.0.4",
+    "inquirer": "^8.2.0",
     "lint-staged": "^12.3.3",
+    "mkdirp": "^1.0.4",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.18",
     "vite": "^2.7.2"
