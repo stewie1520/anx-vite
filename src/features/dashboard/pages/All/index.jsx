@@ -22,7 +22,7 @@ const DashboardPage = () => {
 
     return (
         <Fragment>
-            <div className="relative bg-gray-100 dark:bg-slate-900 px-6 pt-4">
+            <div className="relative bg-gray-100 dark:bg-slate-900 px-6 pt-4 min-h-screen">
                 <div className="relative pb-4">
                     <h1 className="font-bold text-dark-blue dark:text-gray-100 text-2xl">Dashboard</h1>
                 </div>

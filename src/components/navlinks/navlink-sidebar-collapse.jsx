@@ -26,7 +26,6 @@ export const NavLinkSidebarCollapse = ({ icon: Icon, title, children }) => {
   const hiddenClass = isHidden ? 'hidden' : null;
   const hiddenPadding3 = isHidden ? 'py-3' : 'p-3';
   const hiddenCenter = isHidden ? 'justify-center' : null;
-  const hiddenWidth = isHidden ? 'w-full' : 'w-[250px]';
 
   const handleDisclosureButtonClicked = () => {
     if (isSidebarCollapsed) {
@@ -50,7 +49,7 @@ export const NavLinkSidebarCollapse = ({ icon: Icon, title, children }) => {
                 {({ open }) => {
                   const className = open ? 'rotate-180' : null;
                   return (
-                    <button className={cx(navLinkCollapseClass, hiddenPadding3, hiddenCenter, hiddenWidth, 'flex items-center flex-nowrap overflow-x-hidden space-x-4 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700')}
+                    <button className={cx(navLinkCollapseClass, hiddenPadding3, hiddenCenter, 'flex items-center w-full flex-nowrap overflow-x-hidden space-x-4 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-700')}
                       onClick={handleDisclosureButtonClicked}>
                       <Icon className="w-6 h-6" />
                       <span className={cx('font-medium text-left', hiddenClass)}>{title}</span>
